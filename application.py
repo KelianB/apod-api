@@ -12,6 +12,7 @@ Dec 1, 2015 (written by Dan Hammer)
 adapted for AWS Elastic Beanstalk deployment
 @author=JustinGOSSES @email=justin.c.gosses@nasa.gov
 """
+import os
 import sys
 sys.path.insert(0, "../lib")
 ### justin edit
@@ -312,4 +313,5 @@ def application_error(e):
 
 
 if __name__ == '__main__':
-    application.run('0.0.0.0', port=5000)
+    port = int(os.environ.get("PORT", 8080)
+    application.run('0.0.0.0', port=port)
